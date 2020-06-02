@@ -4,6 +4,7 @@ const Queue = require('./queue')
 
 
 class ArquivoCSV {
+
     constructor(arquivo) {
         this.nomeArquivo = arquivo
     }
@@ -19,7 +20,7 @@ class ArquivoCSV {
         })
     }
 
-    listaArquivo() {
+    leituraArquivo() {
         return new Promise((resolve, reject) => {
 
             try {
@@ -29,7 +30,7 @@ class ArquivoCSV {
                     terminal: false
                 })
                 
-                rl.on('line', function (line) {
+                rl.on('line',  (line) => {
                     Queue.filaCSV.push(line)
                 })
     

@@ -6,22 +6,22 @@ class ParseJSON {
     converteParaJSON() {
 
         const continua = setInterval(() => {
+            // console.log('Iniciou converteParaJSON')
             if (Queue.filaCSV.length === 0) {
-                console.log('Comessou converteParaJSON ' + Queue.filaCSV.length)
+                console.log('Tamanho filaCSV: ', Queue.filaCSV.length, ' Status processoCSV: ', Queue.terminouProcessoCSV)
 
                 if (Queue.terminouProcessoCSV) {
                     clearInterval(continua)
                 }
 
             } else {
+                console.log('Queue: ', Queue.filaCSV.length)
                 const csv = Queue.filaCSV.shift()
-                console.log('CSV:', csv)
                 const data = Papa.parse(csv)
                 Queue.filaJSON.push(data)
-                console.log('Tamanho CSV: ', Queue.filaJSON.length)
             }
-        }, 100)
-        console.log('Terminou processo JSON')
+        }, 1)
+        // console.log('Terminou processo JSON')
     }
 }
 

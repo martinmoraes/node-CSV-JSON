@@ -5,3 +5,4 @@ exports.filaJSON = []
 
 exports.terminouProcessoCSV = false
 exports.totalRegistrosCSV = 0
+
